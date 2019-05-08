@@ -11,20 +11,48 @@ const ASCII = {
   ' _ |_| _|': '9',
 }
 
+const DIGITS = {
+  '0': ' _ | ||_|',
+  '1': '     |  |',
+  '2': ' _  _||_ ',
+  '3': ' _  _| _|',
+  '4': '   |_|  |',
+  '5': ' _ |_  _|',
+  '6': ' _ |_ |_|',
+  '7': ' _   |  |',
+  '8': ' _ |_||_|',
+  '9': ' _ |_| _|',
+}
+
 const app = () => {
 
   //handle form
   document.getElementById('bankForm').onsubmit = (event) => {
+    
     event.preventDefault();
     
     const bankFormData = new FormData(document.forms.bankForm);
     
     const input = bankFormData.get('account-number');
-    const output = decode(input);
+    const output = convert(input);
     
-    document.getElementById('output').innerHTML = output;
+    console.log('Output:');
+    console.log(output);
+    document.getElementById('output').value = output;
 
   };
+
+  const convert = (input) => {
+    if(input.length === 9) {
+      return encode(input);
+    } else if(input.length === 83) {
+      console.log(input);
+      const output = decode(input);
+      return output;
+    } else {
+      return Error('Invalid length');
+    }
+  }
 
   const decode = (input) => {
 
@@ -64,8 +92,49 @@ const app = () => {
 
   }
 
+  const encode = (input) => {
+
+    input = input.toString();
+
+    if(input.length !== 9) {
+      return Error('Invalid length.');
+    }
+
+    const lines = [];
+
+    for(var i = 0; i < input.length; i++) {
+      
+      const digit = input[i];
+      const encoded = DIGITS[digit];
+
+      console.log('ASCII for ', digit);
+      console.log(encoded);
+
+      lines.push([
+        encoded.substring(0,3),
+        encoded.substring(3,6),
+        encoded.substring(6,9)
+      ]);
+
+    }
+
+    const outputLines = [
+      lines[0][0] + lines[1][0] + lines[2][0] + lines[3][0] + lines[4][0] + lines[5][0] + lines[6][0] + lines[7][0] + lines[8][0],
+      lines[0][1] + lines[1][1] + lines[2][1] + lines[3][1] + lines[4][1] + lines[5][1] + lines[6][1] + lines[7][1] + lines[8][1],
+      lines[0][2] + lines[1][2] + lines[2][2] + lines[3][2] + lines[4][2] + lines[5][2] + lines[6][2] + lines[7][2] + lines[8][2],
+    ];
+
+    console.log(outputLines[0]);
+    console.log(outputLines[1]);
+    console.log(outputLines[2]);
+
+    return outputLines.join('\n');
+
+  }
+
   return {
-    decode: (decode)
+    decode: (decode),
+    encode: (encode)
   }
 
 }

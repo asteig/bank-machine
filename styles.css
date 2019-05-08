@@ -9,12 +9,12 @@ body {
   display: inline-block;
 }
 
-#machine #bankForm textarea, #tests textarea {
+#machine textarea, #tests textarea {
   width: 300px;
   height: 100px;
 }
 
-#machine #bankForm #decode {
+#machine #bankForm #convert {
   background: red;
   display: block;
   width: 300px;
