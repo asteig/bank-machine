@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Mono');
+
+body {
+  font-family: "PT Mono";
+}
+
+#machine #bankForm {
+  width: 50%;
+  display: inline-block;
+}
+
+#machine #bankForm textarea, #tests textarea {
+  width: 300px;
+  height: 100px;
+}
+
+#machine #bankForm #decode {
+  background: red;
+  display: block;
+  width: 300px;
+}
+
+#machine #output {
+  width: 300px;
+  display: inline-block;
+}
+
+#machine #result {
+  border: 1px black solid;
+  width: 300px;
+  padding: 20px;
+}
+

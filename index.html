@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+  <title>Bank Machine</title>
+  <style>@import 'styles.css';</style>
+</head>
+
+<body>
+  <h1>ASCII Bank Machine</h1>
+  <p>Decode an ASCII account number.</p>
+    
+  <div id="machine">
+    <form id="bankForm">
+      <h2>Input</h2>
+      <textarea name="account-number">    _  _     _  _  _  _  _ 
+  | _| _||_||_ |_   ||_||_|
+  ||_  _|  | _||_|  ||_| _|</textarea>
+      <input type="submit" value="DECODE" id="decode" />
+    </form>
+
+    <h2>Output</h2>
+    <div id="output">
+      Click "decode" above.
+    </div>
+
+  </div>
+
+  <h2>Test Cases</h2>
+  <p>Copy and Paste Test Cases Below</p>
+  <div id="tests">
+
+<!-- pre -->    
+    <textarea id="test1" >    _  _     _  _  _  _  _ 
+  | _| _||_||_ |_   ||_||_|
+  ||_  _|  | _||_|  ||_| _|</textarea>
+
+
+    <textarea id="test2"> _  _  _  _  _  _  _  _  _ 
+|_||_||_||_||_||_||_||_||_|
+|_||_||_||_||_||_||_||_||_|</textarea>
+
+    <textarea id="test4">    _  _  _  _  _  _     _ 
+|_||_|| || ||_   |  |  ||_ 
+  | _||_||_||_|  |  |  | _|</textarea>
+<!-- /pre -->
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
