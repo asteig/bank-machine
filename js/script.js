@@ -107,9 +107,6 @@ const app = () => {
       const digit = input[i];
       const encoded = DIGITS[digit];
 
-      console.log('ASCII for ', digit);
-      console.log(encoded);
-
       lines.push([
         encoded.substring(0,3),
         encoded.substring(3,6),
@@ -124,15 +121,12 @@ const app = () => {
       lines[0][2] + lines[1][2] + lines[2][2] + lines[3][2] + lines[4][2] + lines[5][2] + lines[6][2] + lines[7][2] + lines[8][2],
     ];
 
-    console.log(outputLines[0]);
-    console.log(outputLines[1]);
-    console.log(outputLines[2]);
-
     return outputLines.join('\n');
 
   }
 
   return {
+    convert: (convert),
     decode: (decode),
     encode: (encode)
   }
