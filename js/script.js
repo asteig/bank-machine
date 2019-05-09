@@ -36,8 +36,6 @@ const app = () => {
     const input = bankFormData.get('account-number');
     const output = convert(input);
     
-    console.log('Output:');
-    console.log(output);
     document.getElementById('output').value = output;
 
   };
@@ -45,22 +43,21 @@ const app = () => {
   const convert = (input) => {
     if(input.length === 9) {
       return encode(input);
-    } else if(input.length === 83) {
-      console.log(input);
+    } else if(input.length >= 83) {
       const output = decode(input);
       return output;
     } else {
-      return Error('Invalid length');
+      return Error('Invalid length: ' + input.length);
     }
   }
 
   const decode = (input) => {
 
-    if(input.length !== 83) {
-      return Error('Invalid Entry: Not 83 chars.');
-    }
-
     const lines = input.split('\n');
+
+    for(var i = 0; i < lines.length; i++) {
+      lines[i] = lines[i].slice(0, 27);
+    }
 
     const asciiNums = [
       lines[0].substring( 0, 3) + lines[1].substring( 0, 3) + lines[2].substring( 0, 3),
