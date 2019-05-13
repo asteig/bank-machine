@@ -62,17 +62,15 @@ const app = () => {
 
     const lines = input.split('\n');
 
-    const asciiNums = [
-      lines[0].substring( 0, 3) + lines[1].substring( 0, 3) + lines[2].substring( 0, 3),
-      lines[0].substring( 3, 6) + lines[1].substring( 3, 6) + lines[2].substring( 3, 6),
-      lines[0].substring( 6, 9) + lines[1].substring( 6, 9) + lines[2].substring( 6, 9),
-      lines[0].substring( 9,12) + lines[1].substring( 9,12) + lines[2].substring( 9,12),
-      lines[0].substring(12,15) + lines[1].substring(12,15) + lines[2].substring(12,15),
-      lines[0].substring(15,18) + lines[1].substring(15,18) + lines[2].substring(15,18),
-      lines[0].substring(18,21) + lines[1].substring(18,21) + lines[2].substring(18,21),
-      lines[0].substring(21,24) + lines[1].substring(21,24) + lines[2].substring(21,24),
-      lines[0].substring(24,27) + lines[1].substring(24,27) + lines[2].substring(24,27),
-    ];
+    asciiNums = [];
+
+    for(var i = 0; i < 9; i++) {
+      asciiNums.push(
+        lines[0].substring(3*i, (3*i)+3) + 
+        lines[1].substring(3*i, (3*i)+3) + 
+        lines[2].substring(3*i, (3*i)+3)
+      );
+    }
 
     let accountNumString = '';
 
